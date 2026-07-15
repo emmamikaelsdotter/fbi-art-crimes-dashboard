@@ -1,4 +1,4 @@
-import type { ArtCrimesResponse } from "../types/artcrime";
+import type { ArtCrime, ArtCrimesResponse } from "../types/artcrime";
 import sample from "../mocks/artcrimes.sample.json";
 
 export interface ListParams {
@@ -10,6 +10,7 @@ export interface ListParams {
 
 export interface ArtCrimesApi {
   list: (params: ListParams) => Promise<ArtCrimesResponse>;
+  get: (uid: string) => Promise<ArtCrime>;
 }
 
 const BASE_URL = "https://api.fbi.gov/artcrimes";
@@ -28,6 +29,14 @@ const realApi: ArtCrimesApi = {
     }
     return response.json();
   },
+
+  async get(uid) {
+    const response = await fetch(`https://api.fbi.gov/@artcrimes/${uid}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch art crime (${response.status})`);
+    }
+    return response.json();
+  },
 };
 
 const mockApi: ArtCrimesApi = {
@@ -43,6 +52,15 @@ const mockApi: ArtCrimesApi = {
     const start = (page - 1) * pageSize;
     const items = filtered.slice(start, start + pageSize);
     return { total: filtered.length, page, items };
+  },
+
+  async get(uid) {
+    const all = (sample as ArtCrimesResponse).items;
+    const item = all.find((i) => i.uid === uid);
+    if (!item) {
+      throw new Error("Art crime not found");
+    }
+    return item;
   },
 };
 

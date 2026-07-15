@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { ArtCrime } from "../../types/artcrime";
 
 interface Props {
@@ -19,7 +20,9 @@ export function ArtCrimesTable({ items }: Props) {
       <tbody>
         {items.map((item) => (
           <tr key={item.uid}>
-            <td>{item.title}</td>
+            <td>
+              <Link to={`/artcrimes/${item.uid}`}>{item.title}</Link>
+            </td>
             <td>{item.maker ?? "—"}</td>
             <td>{item.crimeCategory ?? "—"}</td>
             <td>{item.materials ?? "—"}</td>
