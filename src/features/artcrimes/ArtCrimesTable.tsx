@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 import type { ArtCrime } from "../../types/artcrime";
 
+const CATEGORY_LABELS: Record<string, string> = {
+  paintings: "Paintings",
+  sculpture: "Sculpture",
+  tapestry: "Tapestry",
+  "other-collectibles": "Other Collectibles",
+  "other-assorted": "Other Assorted",
+};
+
 interface Props {
   items: ArtCrime[];
 }
@@ -28,7 +36,7 @@ export function ArtCrimesTable({ items }: Props) {
               <Link to={`/artcrimes/${item.uid}`}>{item.title}</Link>
             </td>
             <td>{item.maker ?? "—"}</td>
-            <td>{item.crimeCategory ?? "—"}</td>
+            <td>{item.crimeCategory ? (CATEGORY_LABELS[item.crimeCategory] ?? item.crimeCategory) : "—"}</td>
             <td>{item.materials ?? "—"}</td>
             <td>{item.period ?? "—"}</td>
           </tr>
