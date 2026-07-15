@@ -4,6 +4,8 @@ A searchable dashboard for the [FBI Art Crimes database](https://www.fbi.gov/inv
 
 Browse stolen and missing artwork, filter by title or crime category, and view detailed records for individual cases.
 
+**Live demo:** https://emmamikaelsdotter.github.io/fbi-art-crimes-dashboard/
+
 ## Tech stack
 
 - **React 19** + **TypeScript**
