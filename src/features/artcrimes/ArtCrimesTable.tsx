@@ -6,6 +6,10 @@ interface Props {
 }
 
 export function ArtCrimesTable({ items }: Props) {
+  if (items.length === 0) {
+    return <p>No results found.</p>;
+  }
+
   return (
     <table className="data-table">
       <thead>
