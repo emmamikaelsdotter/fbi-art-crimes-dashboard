@@ -1,9 +1,9 @@
-const CATEGORIES = [
-  "paintings",
-  "sculpture",
-  "tapestry",
-  "other-collectibles",
-  "other-assorted",
+const CATEGORIES: { value: string; label: string }[] = [
+  { value: "paintings", label: "Paintings" },
+  { value: "sculpture", label: "Sculpture" },
+  { value: "tapestry", label: "Tapestry" },
+  { value: "other-collectibles", label: "Other Collectibles" },
+  { value: "other-assorted", label: "Other Assorted" },
 ];
 
 interface Props {
@@ -30,8 +30,8 @@ export function SearchControls({ title, category, onTitleChange, onCategoryChang
         <select value={category} onChange={(e) => onCategoryChange(e.target.value)}>
           <option value="">All</option>
           {CATEGORIES.map((c) => (
-            <option key={c} value={c}>
-              {c}
+            <option key={c.value} value={c.value}>
+              {c.label}
             </option>
           ))}
         </select>
