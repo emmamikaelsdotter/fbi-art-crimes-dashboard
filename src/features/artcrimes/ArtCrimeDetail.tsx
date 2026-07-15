@@ -1,9 +1,17 @@
+import { useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useArtCrimeDetail } from "../../hooks/useArtCrimeDetail";
 
 export function ArtCrimeDetail() {
   const { uid } = useParams();
   const { data, isLoading, isError, error } = useArtCrimeDetail(uid ?? "");
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (data) {
+      headingRef.current?.focus();
+    }
+  }, [data]);
 
   if (isLoading)
     return (
@@ -29,7 +37,9 @@ export function ArtCrimeDetail() {
       <p>
         <Link to="/">← Back to list</Link>
       </p>
-      <h1>{data.title}</h1>
+      <h1 ref={headingRef} tabIndex={-1}>
+        {data.title}
+      </h1>
       {image?.large && <img src={image.large} alt={image.caption || data.title} />}
       <dl className="detail-list">
         <dt>Maker</dt>

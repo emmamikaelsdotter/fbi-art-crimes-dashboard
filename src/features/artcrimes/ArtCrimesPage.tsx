@@ -40,21 +40,23 @@ export function ArtCrimesPage() {
         onTitleChange={handleTitleChange}
         onCategoryChange={handleCategoryChange}
       />
+      <p role="status">
+        {isLoading ? "Loading…" : `${data?.total ?? 0} records`}
+      </p>
       {isError ? (
         <p role="alert">{error?.message ?? "Something went wrong"}</p>
-      ) : isLoading ? (
-        <p>Loading…</p>
       ) : (
-        <>
-          <p>{data?.total} records</p>
-          <ArtCrimesTable items={data?.items ?? []} />
-          <Pagination
-            page={page}
-            pageSize={PAGE_SIZE}
-            total={data?.total ?? 0}
-            onPageChange={setPage}
-          />
-        </>
+        !isLoading && (
+          <>
+            <ArtCrimesTable items={data?.items ?? []} />
+            <Pagination
+              page={page}
+              pageSize={PAGE_SIZE}
+              total={data?.total ?? 0}
+              onPageChange={setPage}
+            />
+          </>
+        )
       )}
     </main>
   );

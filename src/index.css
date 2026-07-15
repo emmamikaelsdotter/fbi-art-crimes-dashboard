@@ -21,6 +21,11 @@ main img {
   height: auto;
 }
 
+h1 {
+  width: fit-content;
+  margin-inline: auto;
+}
+
 button {
   cursor: pointer;
 }
