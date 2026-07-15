@@ -6,7 +6,7 @@ interface Props {
 
 export function ArtCrimesTable({ items }: Props) {
   return (
-    <table>
+    <table className="data-table">
       <thead>
         <tr>
           <th scope="col">Title</th>
