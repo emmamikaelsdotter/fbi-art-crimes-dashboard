@@ -7,5 +7,6 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
+    exclude: ['**/node_modules/**', '**/.{git,cache,output,temp}/**', '**/{vite,playwright}.config.*', '**/e2e/**'],
   },
 })
