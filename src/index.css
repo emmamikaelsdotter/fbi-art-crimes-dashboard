@@ -16,6 +16,11 @@ main {
   text-align: center;
 }
 
+main img {
+  max-width: 320px;
+  height: auto;
+}
+
 button {
   cursor: pointer;
 }
@@ -70,4 +75,22 @@ nav[aria-label="Pagination"] {
 .data-table th:nth-child(5),
 .data-table td:nth-child(5) {
   width: 12%;
+}
+
+.detail-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.5rem;
+  max-width: 320px;
+  margin: 1.5rem auto;
+  text-align: left;
+}
+
+.detail-list dt {
+  font-weight: 600;
+  color: #9aa4b2;
+}
+
+.detail-list dd {
+  margin: 0;
 }
