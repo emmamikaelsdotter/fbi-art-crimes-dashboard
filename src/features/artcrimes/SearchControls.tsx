@@ -9,7 +9,7 @@ interface Props {
 
 export function SearchControls({ title, category, onTitleChange, onCategoryChange }: Props) {
   return (
-    <div>
+    <div className="search-controls">
       <label>
         Search title
         <input

@@ -12,6 +12,7 @@ export function ArtCrimesTable({ items }: Props) {
   }
 
   return (
+    <div className="data-table-wrapper">
     <table className="data-table">
       <thead>
         <tr>
@@ -36,5 +37,6 @@ export function ArtCrimesTable({ items }: Props) {
         ))}
       </tbody>
     </table>
+    </div>
   );
 }

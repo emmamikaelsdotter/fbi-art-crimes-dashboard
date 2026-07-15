@@ -47,6 +47,18 @@ nav[aria-label="Pagination"] {
   gap: 1rem;
 }
 
+.search-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.data-table-wrapper {
+  overflow-x: auto;
+}
+
 .data-table {
   width: 100%;
   border-collapse: collapse;
@@ -84,6 +96,33 @@ nav[aria-label="Pagination"] {
 .data-table th:nth-child(5),
 .data-table td:nth-child(5) {
   width: 12%;
+}
+
+@media (max-width: 640px) {
+  .data-table th:nth-child(4),
+  .data-table td:nth-child(4),
+  .data-table th:nth-child(5),
+  .data-table td:nth-child(5) {
+    display: none;
+  }
+
+  .data-table th:nth-child(1),
+  .data-table td:nth-child(1) { width: 45%; }
+
+  .data-table th:nth-child(2),
+  .data-table td:nth-child(2) { width: 30%; }
+
+  .data-table th:nth-child(3),
+  .data-table td:nth-child(3) { width: 25%; }
+
+  .search-controls {
+    flex-direction: column;
+  }
+
+  .search-controls input,
+  .search-controls select {
+    width: 100%;
+  }
 }
 
 .detail-list {
