@@ -16,6 +16,7 @@ export function ArtCrimeDetail() {
   if (isLoading)
     return (
       <main>
+        <p><Link to="/">← Back to list</Link></p>
         <p>Loading…</p>
       </main>
     );
