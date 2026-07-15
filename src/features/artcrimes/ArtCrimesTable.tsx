@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 import type { ArtCrime } from "../../types/artcrime";
-
-const CATEGORY_LABELS: Record<string, string> = {
-  paintings: "Paintings",
-  sculpture: "Sculpture",
-  tapestry: "Tapestry",
-  "other-collectibles": "Other Collectibles",
-  "other-assorted": "Other Assorted",
-};
+import { CATEGORY_LABELS } from "./categories";
 
 interface Props {
   items: ArtCrime[];
