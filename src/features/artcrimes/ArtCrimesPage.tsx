@@ -41,7 +41,7 @@ export function ArtCrimesPage() {
         onCategoryChange={handleCategoryChange}
       />
       <p role="status">
-        {isLoading ? "Loading…" : `${data?.total ?? 0} records`}
+        {isLoading ? "Loading…" : isError ? "" : `${data?.total ?? 0} records`}
       </p>
       {isError ? (
         <p role="alert">{error?.message ?? "Something went wrong"}</p>
