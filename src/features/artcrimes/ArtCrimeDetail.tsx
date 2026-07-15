@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useArtCrimeDetail } from "../../hooks/useArtCrimeDetail";
+import { CATEGORY_LABELS } from "./categories";
 
 export function ArtCrimeDetail() {
   const { uid } = useParams();
@@ -46,7 +47,7 @@ export function ArtCrimeDetail() {
         <dt>Maker</dt>
         <dd>{data.maker ?? "—"}</dd>
         <dt>Category</dt>
-        <dd>{data.crimeCategory ?? "—"}</dd>
+        <dd>{data.crimeCategory ? (CATEGORY_LABELS[data.crimeCategory] ?? data.crimeCategory) : "—"}</dd>
         <dt>Materials</dt>
         <dd>{data.materials ?? "—"}</dd>
         <dt>Measurements</dt>
