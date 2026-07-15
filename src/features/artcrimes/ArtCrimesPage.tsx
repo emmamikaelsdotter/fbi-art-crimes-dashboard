@@ -49,12 +49,14 @@ export function ArtCrimesPage() {
         !isLoading && (
           <>
             <ArtCrimesTable items={data?.items ?? []} />
-            <Pagination
-              page={page}
-              pageSize={PAGE_SIZE}
-              total={data?.total ?? 0}
-              onPageChange={setPage}
-            />
+            {(data?.total ?? 0) > 0 && (
+              <Pagination
+                page={page}
+                pageSize={PAGE_SIZE}
+                total={data?.total ?? 0}
+                onPageChange={setPage}
+              />
+            )}
           </>
         )
       )}
